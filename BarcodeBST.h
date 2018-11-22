@@ -5,8 +5,9 @@
 #include "Product.h"
 
 /*
- * DESCRIPTION: Prototype for the BarcodeBST 
- * 
+ * DESCRIPTION: Prototype for the BarcodeBST. It inherits from the
+ * BinarySearchTree class.
+ *
  * AUTHOR: Anthony Seo
  */
 class BarcodeBST : public BinarySearchTree<Product> {
@@ -33,6 +34,14 @@ BarcodeBST::BarcodeBST() {
     numberOfProducts = 0;
 }
 
+/*
+ * DESCRIPTION: The method inserts a Product with a given UPC and description.
+ * It calls the private method in the BinarySearchTree class.
+ * 
+ * OUTPUT: none
+ * INPUTS: (string reference) UPC, (string reference) description
+ * AUTHOR: Anthony Seo
+ */
 void BarcodeBST::insertProduct(string& upc, string& description) {
     Product newProduct(upc, description);
     bool inserted = insert(root, newProduct);
@@ -41,11 +50,24 @@ void BarcodeBST::insertProduct(string& upc, string& description) {
     }
 }
 
+/*
+ * DESCRIPTION: Searches a product given a UPC in string format.
+ * 
+ * OUTPUT: none
+ * INPUTS: (string) UPC
+ * AUTHOR: Anthony Seo
+ */
 void BarcodeBST::searchProduct(string upc) {
     search(root, upc);
-    
 }
 
+/*
+ * DESCRIPTION: Private method to search for the item in BST.
+ * 
+ * OUTPUT: none
+ * INPUTS: The root of the BST. (string) UPC
+ * AUTHOR: Anthony Seo
+ */
 void BarcodeBST::search(BinaryNode<Product> *root, string upc) {
     if (root == nullptr) {
         // upc was not found
@@ -64,12 +86,29 @@ void BarcodeBST::search(BinaryNode<Product> *root, string upc) {
     }
 }
 
+/*
+ * DESCRIPTION: Removes a product with a given UPC.
+ * 
+ * OUTPUT: none
+ * INPUTS: (string) UPC
+ * AUTHOR: Anthony Seo
+ */
 void BarcodeBST::removeProduct(string upc) {
     string dummyDescription = "";
     Product comparison(upc, dummyDescription);
-    deleteNode(root, comparison);
+    bool deleted = deleteNode(root, comparison);
+    if (deleted) {
+        numberOfProducts--;
+    }
 }
 
+/*
+ * DESCRIPTION: returns the number of Products in the BST
+ * 
+ * OUTPUT: (int) number of Product object in the BST.
+ * INPUTS: none
+ * AUTHOR: Anthony Seo
+ */
 int BarcodeBST::numProducts() {
     return numberOfProducts;
 }

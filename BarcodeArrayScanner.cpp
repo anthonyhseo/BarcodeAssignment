@@ -38,6 +38,13 @@ int main() {
     return 0;
 }
 
+/*
+ * DESCRIPTION: This method initializes the BarcodeArray data structure.
+ *
+ * OUTPUT: none
+ * INPUTS: BarcodeArray data structure.
+ * AUTHOR: Anthony Seo
+ */
 void init(BarcodeArray &prod) {
     string output;
     ifstream file;
