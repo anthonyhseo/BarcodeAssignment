@@ -52,7 +52,13 @@ class BinarySearchTree {
 
 
 
-
+/*
+ * DESCRIPTION: Copy constructor for the BinarySearchTree class. Implemented for part of the Big 3.
+ * 
+ * OUTPUT: none
+ * INPUTS: reference to another BinarySearchTree
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 BinarySearchTree<T>::BinarySearchTree(BinarySearchTree<T>& rhs){
     // TODO: implement copy constructor
@@ -225,9 +231,9 @@ void BinarySearchTree<T>::inorderTraverse(BinaryNode<T> *root) {
 }
 
 /*
- *
+ * DESCRIPTION: Assignment operator for the BinarySearchTree class.
  * 
- * 
+ * INPUTS
  */
 template <class T>
 BinarySearchTree<T> BinarySearchTree<T>::operator=(BinarySearchTree<T>& rhs) {
