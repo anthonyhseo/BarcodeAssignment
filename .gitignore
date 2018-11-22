@@ -1,0 +1,5 @@
+*.out
+*.txt
+bstTest.cpp
+productTest.cpp
+test.cpp
