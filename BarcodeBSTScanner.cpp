@@ -28,10 +28,16 @@ int main() {
         cout << "time: " << t * 1.0 / CLOCKS_PER_SEC << " milliseconds" << endl;
     }
 
-
     return 0;
 }
 
+/*
+ * DESCRIPTION: This method initializes the product BinarySearchTree data structure. 
+ * 
+ * OUTPUT: none
+ * INPUTS: BarcodeBST data structure.
+ * AUTHOR: Anthony Seo
+ */
 void init(BarcodeBST &prod) {
     string output;
     ifstream file;

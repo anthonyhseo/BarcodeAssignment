@@ -19,6 +19,7 @@ class BarcodeArray {
     void removeProduct(string);
     void searchProduct(string);
     int numberOfProducts();
+    string getUPCAtIndex(int index);
 };
 
 /*
@@ -84,6 +85,13 @@ void BarcodeArray::removeProduct(string upc) {
     }
 }
 
+/*
+ * DESCRIPTION: This method returns the number of products in the array. 
+ * 
+ * OUTPUT: (int) the number of products in array
+ * INPUTS: none
+ * AUTHOR: Anthony Seo
+ */
 void BarcodeArray::searchProduct(string upc) {
     for (int i = 0; i < size; i++) {
         if (products[i] == upc) {
@@ -104,6 +112,20 @@ void BarcodeArray::searchProduct(string upc) {
  */
 int BarcodeArray::numberOfProducts() {
     return size;
+}
+
+/*
+ * DESCRIPTION: This method returns the UPC at a given index of products array. 
+ * 
+ * OUTPUT: (int) the number of products in array
+ * INPUTS: none
+ * AUTHOR: Anthony Seo
+ */
+string BarcodeArray::getUPCAtIndex(int index) {
+    if (index >= 0 && index < size) {
+        return products[index].getUPC();
+    }
+    return "invalid index";
 }
 
 

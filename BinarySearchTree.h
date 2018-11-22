@@ -99,7 +99,6 @@ void BinarySearchTree<T>::destroy(BinaryNode<T>*& p) {
     if (p != nullptr) {
         destroy(p->left);
         destroy(p->right);
-        cout << "deleting: " << p->data << endl;
         delete p;
     }
     p = nullptr;
@@ -212,6 +211,11 @@ void BinarySearchTree<T>::inorderTraverse() {
     cout << '\n';
 }
 
+/*
+ *
+ * 
+ * 
+ */
 template <class T>
 void BinarySearchTree<T>::inorderTraverse(BinaryNode<T> *root) {
     if (root == nullptr) return;
@@ -220,6 +224,11 @@ void BinarySearchTree<T>::inorderTraverse(BinaryNode<T> *root) {
     inorderTraverse(root->right);
 }
 
+/*
+ *
+ * 
+ * 
+ */
 template <class T>
 BinarySearchTree<T> BinarySearchTree<T>::operator=(BinarySearchTree<T>& rhs) {
     // TODO: implement assignment operator

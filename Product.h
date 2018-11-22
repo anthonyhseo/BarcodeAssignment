@@ -56,7 +56,8 @@ string Product::getProduct() {
 }
 
 /*
- * DESCRIPTION: Equality operator overload for the Product class. Compares a string upc with the current Product object.
+ * DESCRIPTION: Equality operator overload for the Product class. Compares a
+ * string upc with the current Product object.
  *
  * OUTPUT: True if equal, false if not equal.
  * INPUTS: UPC to compare in string format
@@ -67,7 +68,8 @@ bool Product::operator==(const string& rhs) {
 }
 
 /*
- * DESCRIPTION: Equality operator overload for the Product class. Compares the UPC of another product with the current product UPC.
+ * DESCRIPTION: Equality operator overload for the Product class. Compares the
+ * UPC of another product with the current product UPC.
  *
  * OUTPUT: True if equal, false if not equal.
  * INPUTS: UPC to compare in string format
@@ -78,7 +80,8 @@ bool Product::operator==(const Product& rhs) {
 }
 
 /*
- * DESCRIPTION: Less than (<) operator overload for the Product class. Compares a upc with the current Product object.
+ * DESCRIPTION: Less than (<) operator overload for the Product class. Compares
+ * a upc with the current Product object.
  *
  * OUTPUT: True if less than, false if not less than.
  * INPUTS: UPC to compare in string format

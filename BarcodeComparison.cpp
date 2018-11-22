@@ -12,7 +12,7 @@ void init(BarcodeBST &, BarcodeArray &);
 int main() {
 
     BarcodeBST bst;
-    BarcodeArray array;
+    BarcodeArray array(1200000);
     init(bst, array);
 
 

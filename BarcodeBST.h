@@ -7,8 +7,7 @@
 /*
  * DESCRIPTION: Prototype for the BarcodeBST 
  * 
- * 
- * 
+ * AUTHOR: Anthony Seo
  */
 class BarcodeBST : public BinarySearchTree<Product> {
   private:
@@ -22,7 +21,6 @@ class BarcodeBST : public BinarySearchTree<Product> {
 
   private:
     void search(BinaryNode<Product> *root, string upc);
-    // void remove(BinaryNode<Product>*& root, string upc);
 };
 
 BarcodeBST::BarcodeBST() {
@@ -65,20 +63,5 @@ void BarcodeBST::removeProduct(string upc) {
     Product comparison(upc, dummyDescription);
     deleteNode(root, comparison);
 }
-
-// void BarcodeBST::remove(BinaryNode<Product>*& root, string upc) {
-//     if (root == nullptr) {
-//         cout << "Product not found" << endl;
-//         return;
-//     }
-//     if (root->data > upc) {
-//         remove(root->left, upc);
-//     } else if (root->data < upc) {
-//         remove(root->right, upc);
-//     } else {
-//         // complete later
-//         return;
-//     }
-// }
 
 #endif // BARCODEBST_H_
