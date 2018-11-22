@@ -20,8 +20,6 @@ struct BinaryNode {
 /*
  * DESCRIPTION: Prototype for the BinarySearchTree class
  * 
- * 
- * 
  * AUTHOR: Anthony Seo
  */
 template <class T>
@@ -39,7 +37,7 @@ class BinarySearchTree {
     void inorderTraverse();
     BinaryNode<T>* findMin(BinaryNode<T> *);
 
-    BinarySearchTree<T> operator=(BinarySearchTree<T> &rhs);
+    BinarySearchTree<T>& operator=(BinarySearchTree<T> &rhs);
 
   protected:
     BinaryNode<T>* copy(BinaryNode<T> *);
@@ -50,33 +48,38 @@ class BinarySearchTree {
     void inorderTraverse(BinaryNode<T> *);
 };
 
-
-
 /*
- * DESCRIPTION: Copy constructor for the BinarySearchTree class. Implemented for part of the Big 3.
- * 
+ * DESCRIPTION: Copy constructor for the BinarySearchTree class. Implemented for
+ * part of the Big 3.
+ *
  * OUTPUT: none
  * INPUTS: reference to another BinarySearchTree
  * AUTHOR: Anthony Seo
  */
 template <class T>
 BinarySearchTree<T>::BinarySearchTree(BinarySearchTree<T>& rhs){
-    // TODO: implement copy constructor
     root = nullptr;
     if (this != &rhs) {
         root = copy(rhs.root);
     }
 }
 
+/*
+ * DESCRIPTION: Destructor for the BinarySearchTree class. It calls the destroy
+ * method to free the dynamic memory elements.
+ *
+ * OUTPUT: none
+ * INPUTS: none
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 BinarySearchTree<T>::~BinarySearchTree() {
-    // TODO: need to implement destructor
     destroy(root);
 }
 
 /*
  * DESCRIPTION: Helper method to deep copy all nodes in the BinarySearchTree.
- * 
+ *
  * OUTPUT: Pointer to the root of the copied binary tree
  * INPUTS: root of the binary tree to be copied
  * AUTHOR: Anthony Seo
@@ -94,8 +97,10 @@ BinaryNode<T>* BinarySearchTree<T>::copy(BinaryNode<T>* p) {
 }
 
 /*
- * DESCRIPTION: Helper method to delete all nodes in the BinarySearchTree. It is used to initialize the BinarySearchTree or used in the destructor to free dynamic memory elements.
- * 
+ * DESCRIPTION: Helper method to delete all nodes in the BinarySearchTree. It is
+ * used to initialize the BinarySearchTree or used in the destructor to free
+ * dynamic memory elements.
+ *
  * OUTPUT: none
  * INPUTS: pointer to the BinaryNode element
  * AUTHOR: Anthony Seo
@@ -110,6 +115,15 @@ void BinarySearchTree<T>::destroy(BinaryNode<T>*& p) {
     p = nullptr;
 }
 
+/*
+ * DESCRIPTION: The public method to insert an item to the BST. Calls the
+ * private method with the same name since we don't have access to the root
+ * node.
+ *
+ * OUTPUT: none
+ * INPUTS: reference to the item to be inserted
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 void BinarySearchTree<T>::insert(T& item) {
     bool inserted = insert(root, item);
@@ -118,6 +132,13 @@ void BinarySearchTree<T>::insert(T& item) {
     }
 }
 
+/*
+ * DESCRIPTION: The private method to insert an item to the BST.
+ *
+ * OUTPUT: true if found, false if not found
+ * INPUTS: reference to the item to be inserted
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 bool BinarySearchTree<T>::insert(BinaryNode<T>*& p, T& item) {
     if (p == nullptr) {
@@ -137,6 +158,13 @@ bool BinarySearchTree<T>::insert(BinaryNode<T>*& p, T& item) {
     }
 }
 
+/*
+ * DESCRIPTION: Search method 
+ *
+ * OUTPUT: none
+ * INPUTS: reference to the item to be searched
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 void BinarySearchTree<T>::search(T& item) {
     BinaryNode<T>* found = search(root, item);
@@ -147,9 +175,17 @@ void BinarySearchTree<T>::search(T& item) {
     }
 }
 
+/*
+ * DESCRIPTION: The private method to search an item to the BST. Returns a
+ * pointer to the Node.
+ *
+ * OUTPUT: pointer to the BinaryNode<T>
+ * INPUTS: reference to the item to be searched
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 BinaryNode<T>* BinarySearchTree<T>::search(BinaryNode<T>* p, T& item) {
-    if (p == nullptr) return nullptr;
+    if (p == nullptr) return nullptr; // not found
     if (item < p->data) {
         return search(p->left, item);
     } else if (item > p->data) {
@@ -159,6 +195,14 @@ BinaryNode<T>* BinarySearchTree<T>::search(BinaryNode<T>* p, T& item) {
     }
 }
 
+/*
+ * DESCRIPTION: Method to delete a node from a BST. Calls the private deleteNode
+ * method.
+ *
+ * OUTPUT: none
+ * INPUTS: reference to the item to be deleted
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 void BinarySearchTree<T>::deleteNode(T &item) {
     bool deleted = deleteNode(root, item);
@@ -199,6 +243,13 @@ bool BinarySearchTree<T>::deleteNode(BinaryNode<T>*& p, T& item) {
     }
 }
 
+/*
+ * DESCRIPTION: Finds the minimum node given a node.
+ *
+ * OUTPUT: pointer to minimum node
+ * INPUTS: root node to find min
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 BinaryNode<T>* BinarySearchTree<T>::findMin(BinaryNode<T>* p) {
     if (p != nullptr) {
@@ -210,7 +261,14 @@ BinaryNode<T>* BinarySearchTree<T>::findMin(BinaryNode<T>* p) {
     return p;
 }
 
-
+/*
+ * DESCRIPTION: Method to inorder traverse the BST. Calls the private method of
+ * the same name since the root is a private variable.
+ *
+ * OUTPUT: none
+ * INPUTS: none
+ * AUTHOR: Anthony Seo
+ */
 template <class T>
 void BinarySearchTree<T>::inorderTraverse() {
     inorderTraverse(root);
@@ -218,9 +276,11 @@ void BinarySearchTree<T>::inorderTraverse() {
 }
 
 /*
- *
+ * DESCRIPTION: Private helper method to inorder traverse the BST.
  * 
- * 
+ * OUTPUT: none
+ * INPUTS: The root of the tree.
+ * AUTHOR: Anthony Seo
  */
 template <class T>
 void BinarySearchTree<T>::inorderTraverse(BinaryNode<T> *root) {
@@ -231,14 +291,15 @@ void BinarySearchTree<T>::inorderTraverse(BinaryNode<T> *root) {
 }
 
 /*
- * DESCRIPTION: Assignment operator for the BinarySearchTree class.
- * 
- * INPUTS
+ * DESCRIPTION: Assignment operator for the BinarySearchTree class. Implemented
+ * for part of the Big 3.
+ *
+ * OUTPUT: reference to the copied BinarySearchTree for chaining
+ * INPUTS: reference to another BinarySearchTree.
+ * AUTHOR: Anthony Seo
  */
 template <class T>
-BinarySearchTree<T> BinarySearchTree<T>::operator=(BinarySearchTree<T>& rhs) {
-    // TODO: implement assignment operator
-    cout << "running assignment operator" << endl;
+BinarySearchTree<T>& BinarySearchTree<T>::operator=(BinarySearchTree<T>& rhs) {
     if (this != &rhs) {
         destroy(root);
         root = copy(rhs.root);

@@ -8,6 +8,14 @@ using namespace std;
 
 void init(BarcodeBST&);
 
+/*
+ * DESCRIPTION: Main method for the BarcodeBSTScanner
+ * to compile: g++ BarcodeBSTScanner.cpp -o BarcodeBSTScanner.out
+ * to run ./BarcodeBSTScanner.out
+ * 
+ * AUTHOR: Anthony Seo
+ * 
+ */
 int main() {
     BarcodeBST products;
     init(products);
@@ -15,7 +23,7 @@ int main() {
     string product = "";
 
     while (true) {
-        cout << "Enter UPC of product would you like to search for (Enter 'q' to quit):  ";
+        cout << "Enter UPC of product would you like to search for (Enter 'q' to quit): ";
         getline(cin, product);
 
         if (product == "q") break;
@@ -32,8 +40,9 @@ int main() {
 }
 
 /*
- * DESCRIPTION: This method initializes the product BinarySearchTree data structure. 
- * 
+ * DESCRIPTION: This method initializes the product BinarySearchTree data
+ * structure.
+ *
  * OUTPUT: none
  * INPUTS: BarcodeBST data structure.
  * AUTHOR: Anthony Seo

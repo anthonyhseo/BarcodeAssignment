@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/*
+ * DESCRIPTION: Prototype for the BarcodeArray
+ *
+ * AUTHOR: Anthony Seo
+ */
 class BarcodeArray {
   private:
     Product *products;
@@ -26,6 +31,7 @@ class BarcodeArray {
  * DESCRIPTION: Constructor for the BarcodeArray class. Initializes array with a
  * given capacity and sets the size to 0.
  *
+ * INPUTS: (int) the capacity needed for the Products array.
  * AUTHOR: Anthony Seo
  */
 BarcodeArray::BarcodeArray(int _capacity = 16) {

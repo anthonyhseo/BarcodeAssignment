@@ -18,11 +18,17 @@ class BarcodeBST : public BinarySearchTree<Product> {
     void insertProduct(string& upc, string& description);
     void searchProduct(string upc);
     void removeProduct(string upc);
+    int numProducts();
 
   private:
     void search(BinaryNode<Product> *root, string upc);
 };
 
+/*
+ * DESCRIPTION: Constructor for the BarcodeBST class
+ * 
+ * AUTHOR: Anthony Seo
+ */
 BarcodeBST::BarcodeBST() {
     numberOfProducts = 0;
 }
@@ -62,6 +68,10 @@ void BarcodeBST::removeProduct(string upc) {
     string dummyDescription = "";
     Product comparison(upc, dummyDescription);
     deleteNode(root, comparison);
+}
+
+int BarcodeBST::numProducts() {
+    return numberOfProducts;
 }
 
 #endif // BARCODEBST_H_

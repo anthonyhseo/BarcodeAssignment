@@ -11,8 +11,11 @@ using namespace std;
 void init(BarcodeBST &, BarcodeArray &);
 
 /*
- * DESCRIPTION: Automated testing for both the BST and Array. It will output a csv file to graph the data. 
- * 
+ * DESCRIPTION: Automated testing for both the BST and Array. It will output a
+ * csv file to graph the data.
+ * to compile: g++ BarcodeComparison.cpp -o BarcodeComparison.out
+ * to run: ./BarcodeComparison.out
+ *
  * AUTHOR: Anthony Seo
  */
 int main() {
@@ -28,7 +31,7 @@ int main() {
 
     /* The loop that generates the data for the graph. The user can increase or
      * decrease the number of test cases by editing the += value. This case will
-     * produce roughly 200 test cases.
+     * produce roughly 200 test cases. The output is stored in a csv file.
      */
     for (int i = 0; i < size; i += 5000) {
         string testUPC = array.getUPCAtIndex(i);

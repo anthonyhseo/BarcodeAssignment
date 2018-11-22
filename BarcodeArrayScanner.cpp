@@ -8,6 +8,13 @@ using namespace std;
 
 void init(BarcodeArray &prod);
 
+/*
+ * DESCRIPTION: The main method for the BarcodeArrayScanner.
+ * to compile: g++ BarcodeArrayScanner.cpp -o BarcodeArrayScanner.out
+ * to run: ./BarcodeArrayScanner.out
+ * 
+ * AUTHOR: Anthony Seo
+ */
 int main() {
 
     BarcodeArray products(1200000);
